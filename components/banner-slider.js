@@ -10,7 +10,7 @@ export default function BannerSlider() {
   const sliderRef = useRef(null)
   const slides = ["/images/10990-1.webp", "/images/slides.webp", "/images/slide-1.webp"]
 
-  // Auto slide effect
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isDragging) {
@@ -20,7 +20,7 @@ export default function BannerSlider() {
     return () => clearInterval(interval)
   }, [isDragging, slides.length])
 
-  // Touch/swipe handlers
+
   const handleTouchStart = (e) => {
     setIsDragging(true)
     setStartX(e.touches ? e.touches[0].clientX : e.clientX)
@@ -36,10 +36,10 @@ export default function BannerSlider() {
     if (!isDragging) return
     
     if (translateX > 50) {
-      // Swipe right - go to previous slide
+
       setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length)
     } else if (translateX < -50) {
-      // Swipe left - go to next slide
+
       setCurrentSlide(prev => (prev + 1) % slides.length)
     }
     
